@@ -1,9 +1,6 @@
-import type React from "react";
-
 const ExperienceItem = ({
     company,
     companyLink,
-    companyLogo,
     title,
     duration,
     description

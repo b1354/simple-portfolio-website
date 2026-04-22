@@ -11,7 +11,7 @@ interface Project {
 }
 
 const ProjectCard = ({ project }: { project: Project }) => {
-    const [hovered, setHovered] = useState(false);
+    const [hovered] = useState(false);
 
     return (
         <div
