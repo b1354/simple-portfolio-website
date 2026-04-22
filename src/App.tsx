@@ -20,11 +20,13 @@ export default function App() {
       <Stat />
 
       <div className="flex gap-[38px] justify-center mt-12">
-        <Button
-          variant="default"
-          className="w-[150px] h-[60px] md:w-[290px] md:h-[80px] cursor-pointer">
-          Download CV
-        </Button>
+        <a href="./cv.pdf">
+          <Button
+            variant="default"
+            className="w-[150px] h-[60px] md:w-[290px] md:h-[80px] cursor-pointer">
+            Download CV
+          </Button>
+        </a>
         <a href="mailto:bayurizkyseptiansyah@gmail.com">
           <Button
             variant="secondary"
