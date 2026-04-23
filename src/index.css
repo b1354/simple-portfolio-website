@@ -8,7 +8,8 @@
 @import "@fontsource/poppins/600.css";
 @import "@fontsource/poppins/700.css";
 
-@custom-variant dark (&:is(.dark *));
+/* @custom-variant dark (&:is(.dark *)); */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
     --font-heading: var(--font-sans);
@@ -46,6 +47,7 @@
     --color-foreground: var(--foreground);
     --color-foreground-subtle: var(--foreground-subtle);
     --color-background: var(--background);
+    --ease-spring: cubic-bezier(0.5, 1.5, 0.5, 1);
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
     --radius-lg: var(--radius);
@@ -93,14 +95,16 @@
 
 .dark {
     --background: #0C151D;
-    --foreground: oklch(0.985 0 0);
+    --foreground: #F1F2F4;
+    --foreground-subtle: #A3ABB2;
     --card: oklch(0.205 0 0);
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.205 0 0);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
+    --primary: #FBD144;
     --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
+    /* --secondary: oklch(0.269 0 0); */
+    --secondary: #171F26;
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.269 0 0);
     --muted-foreground: oklch(0.708 0 0);
@@ -131,5 +135,6 @@
     }
   body {
     @apply bg-background text-foreground font-poppins;
+    transition: background-color 0.3s ease, color 0.3s ease;
     }
 }

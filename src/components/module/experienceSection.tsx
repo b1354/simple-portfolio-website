@@ -27,11 +27,11 @@ const ExperienceItem = ({
             </div>
         </div>
         <div className="flex gap-[20px]">
-            <div className="w-[20px] items-stretch">
+            <div className="flex w-[20px] justify-center">
                 <div className="border-0 border-primary border-l-4 border-dashed h-full w-[2px] mx-auto"></div>
             </div>
 
-            <div className="flex flex-col gap-[8px]">
+            <div className="flex flex-col gap-[8px] w-full">
                 <div className="">
                     <h4 className="text-[clamp(16px,2.5vw,18px)] font-bold">{title}</h4>
                     <p className="text-[clamp(12px,1.5vw,16px)] font-bold">{duration}</p>
