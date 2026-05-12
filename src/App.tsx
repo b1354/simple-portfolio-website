@@ -6,6 +6,7 @@ import Stat from "./components/module/stat";
 import useDarkMode from "./hooks/useDarkmode";
 import { Button } from "./components/ui/button";
 import { TbMoonFilled, TbSunFilled } from "react-icons/tb";
+import heart from "./assets/heart.png";
 import { cn } from "./lib/utils";
 
 export default function App() {
@@ -64,8 +65,8 @@ export default function App() {
 
       <ExperienceSection />
 
-      <footer className="text-center mt-16 text-foreground-subtle">
-        <p>Copyright © 2024 Bayu Rizki. All rights reserved.</p>
+      <footer className="text-center mt-16 text-foreground-subtle select-none">
+        <p>Crafted With <img src={heart} alt="heart" className="inline-block w-5 h-5" /> By B1354</p>
       </footer>
     </div>
   )
