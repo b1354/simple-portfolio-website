@@ -6,6 +6,7 @@ import shopee from "@/assets/shopee-like-webapps.png";
 import traffic from "@/assets/traffic-jam.png";
 import kangPantau from "@/assets/kang-pantau-bot.png";
 import { cn } from "@/lib/utils";
+import CImage from "../common/c-image";
 
 interface Project {
     title: string;
@@ -15,27 +16,29 @@ interface Project {
 }
 
 const ProjectCard = ({ project }: { project: Project }) => {
-    const [hovered] = useState(false);
+    const [hovered, setHovered] = useState(false);
 
     return (
         <a href={project.link || "#"} target="_blank" rel="noopener noreferrer">
             <div
                 className="relative rounded-2xl overflow-hidden select-none grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
                 style={{ aspectRatio: "4/3" }}
-            // onMouseEnter={() => setHovered(true)}
-            // onMouseLeave={() => setHovered(false)}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
             >
-                <img
+                <CImage
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500"
                     style={{ transform: hovered ? "scale(1.05)" : "scale(1)" }}
+                    loading="lazy"
+                    fill
                 />
 
                 {/* Hover Overlay */}
                 <div
-                    className="absolute inset-0 flex flex-col justify-end p-6 transition-all duration-400 hover:bg-primary/80"
-                    style={!hovered ? { background: "linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%)" } : undefined}
+                    className="absolute inset-0 flex flex-col justify-end p-6 transition-all duration-400"
+                    style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%)" }}
                 >
                     {/* Title always visible */}
                     <h3
@@ -43,25 +46,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
                         style={{
                             fontFamily: "'Poppins', sans-serif",
                             fontSize: "clamp(16px, 2vw, 20px)",
-                            transform: hovered ? "translateY(-8px)" : "translateY(0)",
                         }}
                     >
                         {project.title}
                     </h3>
-
-                    {/* Description - slides up on hover */}
-                    <p
-                        className="text-white/80 text-sm leading-relaxed transition-all duration-300"
-                        style={{
-                            fontFamily: "'Poppins', sans-serif",
-                            maxHeight: hovered ? "80px" : "0px",
-                            opacity: hovered ? 1 : 0,
-                            overflow: "hidden",
-                            transform: hovered ? "translateY(0)" : "translateY(10px)",
-                        }}
-                    >
-                        {project.description}
-                    </p>
                 </div>
             </div>
         </a>
@@ -111,7 +99,7 @@ export default function ProjectSection() {
     return (
         <div className="mt-12">
             <h2 className="text-[clamp(24px,4vw,44px)] font-medium text-foreground text-center">Projects</h2>
-            <div className={cn("transition-all duration-300 relative grid grid-cols-1 md:grid-cols-2 gap-8 mt-12", showAll ? "pb-[150px]":"max-h-[800px] md:max-h-[670px] overflow-y-hidden")}>
+            <div className={cn("transition-all duration-300 relative grid grid-cols-1 md:grid-cols-2 gap-8 mt-12", showAll ? "pb-[150px]" : "max-h-[800px] md:max-h-[670px] overflow-y-hidden")}>
                 {project.map((proj, i) => (
                     <ProjectCard
                         key={i}

@@ -8,6 +8,7 @@ import { Button } from "./components/ui/button";
 import { TbMoonFilled, TbSunFilled } from "react-icons/tb";
 import heart from "./assets/heart.png";
 import { cn } from "./lib/utils";
+import Terminal from "./components/common/terminal";
 
 export default function App() {
   const [isDark, setIsDark] = useDarkMode();
@@ -58,6 +59,8 @@ export default function App() {
           </Button>
         </a>
       </div>
+
+      <Terminal />
 
       <ProjectSection />
 
