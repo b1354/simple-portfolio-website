@@ -10,12 +10,12 @@ export default function AnimateSlideUp({
     className?: string;
     delay?: number;
 }) {
-    const { ref, isInView } = useInView({rootMargin: "-180px"})
+    const { ref, isInView } = useInView({rootMargin: "-20px"})
 
     return (
         <div
             ref={ref}
-            className={cn("opacity-0 translate-y-10 transition-all duration-500", isInView && "translate-y-0 opacity-100", className)}
+            className={cn("opacity-0 translate-y-10 transition-all duration-500 delay-75", isInView && "translate-y-0 opacity-100", className)}
             style={{ animationDelay: `${delay}ms` }}
         >
             {children}
