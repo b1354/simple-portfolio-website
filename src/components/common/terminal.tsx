@@ -95,7 +95,7 @@ export default function Terminal() {
                     <div className="w-3 h-3 rounded-full bg-yellow-500" />
                     <div className="w-3 h-3 rounded-full bg-green-500" />
                     <span className="ml-4 text-sm text-foreground-subtle font-mono select-none">
-                        terminal.json
+                        cat data.json
                     </span>
                 </div>
 

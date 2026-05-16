@@ -9,6 +9,7 @@ import { TbMoonFilled, TbSunFilled } from "react-icons/tb";
 import heart from "./assets/heart.png";
 import { cn } from "./lib/utils";
 import Terminal from "./components/common/terminal";
+import AnimateSlideUp from "./components/common/animate-slide-up";
 
 export default function App() {
   const [isDark, setIsDark] = useDarkMode();
@@ -62,11 +63,15 @@ export default function App() {
 
       <Terminal />
 
-      <ProjectSection />
+      <AnimateSlideUp>
+        <ProjectSection />
+      </AnimateSlideUp>
 
       <SkillSection />
 
-      <ExperienceSection />
+      <AnimateSlideUp>
+        <ExperienceSection />
+      </AnimateSlideUp>
 
       <footer className="text-center mt-16 text-foreground-subtle select-none">
         <p>Crafted With <img src={heart} alt="heart" className="inline-block w-5 h-5" /> By B1354</p>
